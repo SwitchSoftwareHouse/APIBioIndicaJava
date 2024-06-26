@@ -14,6 +14,7 @@ public class AuthenticationController {
     @Autowired
     private UserRepository userRepository;
 
+    @CrossOrigin
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticate(@RequestBody AuthenticationRequest authentication) {
         User user = (User) userRepository.findByEmail(authentication.getEmail());
@@ -25,6 +26,7 @@ public class AuthenticationController {
         return ResponseEntity.status(HttpStatus.OK).body("Usuário autenticado com sucesso");
     }
 
+    // @CrossOrigin
     // @PostMapping
     // @ResponseStatus(HttpStatus.CREATED)
     // public ResponseEntity<String> createUser(@RequestBody SignUp signUp) {

@@ -16,11 +16,13 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(userRepository.findAll());
     }
 
+    @CrossOrigin
     @PostMapping("/register-user")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> registerNewUser(@RequestBody User newUser) {
@@ -32,6 +34,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @CrossOrigin
     @PutMapping("/update-user/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateCustomer(@PathVariable Long id, @RequestBody User user) {
@@ -40,6 +43,7 @@ public class UserController {
         userRepository.save(user);
     }
 
+    @CrossOrigin
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUsers(@RequestBody List<User> users) {
