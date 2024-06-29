@@ -5,11 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
+@CrossOrigin
 @RestController
 @RequestMapping("bioindica/api/user")
 public class UserController {
